@@ -24,8 +24,9 @@
         .top-bar {
             background: var(--blue);
             color: white;
-            padding: 8px 0;
-            font-size: 14px;
+            padding: 12px 0;
+            font-size: 16px;
+            text-align: center;
         }
         
         .top-bar .container {
@@ -33,11 +34,20 @@
             margin: 0 auto;
             padding: 0 20px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
+            gap: 20px;
         }
         
-        .phone { font-weight: 600; }
+        .phone { 
+            font-weight: 700; 
+            font-size: 24px;
+        }
+        
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+        }
         
         header {
             background: white;
@@ -132,6 +142,11 @@
             padding: 40px;
             border: 1px solid #e2e8f0;
             text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
         }
         
         .service-card h3 {
@@ -150,6 +165,8 @@
         .review-card {
             border: 1px solid #e2e8f0;
             padding: 30px;
+            background: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
         .stars { color: #fbbf24; font-size: 20px; margin-bottom: 10px; }
@@ -160,6 +177,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
+            align-items: start;
         }
         
         .form-group {
@@ -180,28 +198,39 @@
             padding: 15px;
             border: 2px solid #e2e8f0;
             font-size: 16px;
+            border-radius: 5px;
         }
         
         .form-group input:focus,
         .form-group textarea:focus,
         .form-group select:focus {
             outline: none;
-            border-color: var(--blue);
+            border-color: var(--blue-light);
+            box-shadow: 0 0 5px rgba(43,108,176,0.3);
         }
         
         .info-item {
             margin-bottom: 30px;
+            padding: 20px;
+            background: var(--gray);
+            border-radius: 5px;
         }
         
         .info-item strong {
             color: var(--blue);
             display: block;
             margin-bottom: 5px;
+            font-size: 18px;
+        }
+        
+        .info-item div {
+            font-size: 16px;
+            line-height: 1.5;
         }
         
         .map-container {
             border: 1px solid #e2e8f0;
-            border-radius: 0;
+            border-radius: 5px;
             overflow: hidden;
         }
         
@@ -235,6 +264,8 @@
             .hero p { font-size: 20px; }
             .section-title { font-size: 32px; }
             .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+            .top-bar .container { flex-direction: column; gap: 10px; }
+            .phone { font-size: 20px; }
         }
     </style>
 </head>
@@ -242,7 +273,7 @@
     <div class="top-bar">
         <div class="container">
             <span class="phone"><a href="tel:+14053407974" style="color:white;">📞 (405) 340-7974</a></span>
-            <span>Mon-Fri 8AM-6PM | Sat 9AM-4PM</span>
+            <span>Mon-Fri 8AM-6PM | Sat 9AM-4PM | Sun Closed</span>
         </div>
     </div>
 
@@ -309,7 +340,7 @@
         <div class="container">
             <h2 class="section-title">Contact Us</h2>
             <div class="contact-grid">
-                <form style="background:white; padding:40px;">
+                <form style="background:white; padding:40px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
                     <div class="form-group">
                         <label>Name</label>
                         <input type="text" required>
@@ -327,12 +358,16 @@
                             <option>Mobile Service</option>
                         </select>
                     </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea rows="4" placeholder="Let us know more about your needs..."></textarea>
+                    </div>
                     <button type="submit" class="cta-button" style="width:100%; margin-top:20px;">Get Free Quote</button>
                 </form>
-                <div style="background:white; padding:40px;">
+                <div style="background:white; padding:40px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
                     <div class="info-item">
                         <strong>📞 Phone</strong>
-                        <div>(405) 340-7974</div>
+                        <div><a href="tel:+14053407974" style="color: var(--blue); font-size: 24px; font-weight: 600;">(405) 340-7974</a></div>
                     </div>
                     <div class="info-item">
                         <strong>📍 Address</strong>
@@ -345,6 +380,10 @@
                     <div class="info-item">
                         <strong>👨 Owner</strong>
                         <div>Chris - 15+ Years Experience</div>
+                    </div>
+                    <div class="info-item">
+                        <strong>🌟 Why Choose Us?</strong>
+                        <div>Mobile service, competitive pricing, and top-notch quality with a lifetime warranty.</div>
                     </div>
                 </div>
             </div>
@@ -373,7 +412,7 @@
                 </div>
                 <div class="footer-section">
                     <h4>Contact</h4>
-                    <p>(405) 340-7974<br>424 Sigma Pl #6096<br>Guthrie, OK 73044</p>
+                    <p><a href="tel:+14053407974" style="color:white;">(405) 340-7974</a><br>424 Sigma Pl #6096<br>Guthrie, OK 73044</p>
                 </div>
             </div>
             <p style="text-align:center; opacity:0.7;">© 2025 Western Mobile Glass & Mirror. All rights reserved.</p>
@@ -382,7 +421,7 @@
 
     <script>
         // 🔥 PASTE YOUR REVIEWS HERE - JUST REPLACE THE ARRAY BELOW 🔥
-        [
+   const reviews = [
   { name: "Benton Whipple", rating: 5, body: "Was recommended to these guys by many. They were quick to come out and replace my daughter’s windshield. Very polite and professional. Will do business with them again." },
   { name: "Ky Edwards", rating: 5, body: "Got a windshield for my truck done. Excellent customer service and a fast, quality experience. Highly recommend, these guys will get you right." },
   { name: "Kelsi Carrington", rating: 5, body: "Saw them fixing someone else’s windshield and I got a quote, almost $1000 less than everyone else! Immediately scheduled! They were so nice and made it so easy!" },
@@ -442,12 +481,12 @@
         function renderReviews() {
             const container = document.getElementById('reviewsGrid');
             reviews.forEach(review => {
-                const stars = '★'.repeat(review.stars) + '☆'.repeat(5 - review.stars);
+                const stars = '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating);
                 container.innerHTML += `
                     <div class="review-card">
                         <div class="stars">${stars}</div>
                         <div class="reviewer">${review.name}</div>
-                        <p>"${review.text}"</p>
+                        <p>"${review.body}"</p>
                     </div>
                 `;
             });
