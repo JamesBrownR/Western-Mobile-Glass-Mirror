@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Western Mobile Glass & Mirror | Guthrie, OK Auto Glass Experts</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --blue: #1a365d;
+            --blue-light: #2b6cb0;
+            --gray: #f7fafc;
+            --dark: #1a202c;
+            --white: #ffffff;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+        }
+        
+        .top-bar {
+            background: var(--blue);
+            color: white;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+        
+        .top-bar .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .phone { font-weight: 600; }
+        
+        header {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--blue);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+        }
+        
+        .hero {
+            background: var(--blue);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 24px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: var(--blue);
+            padding: 18px 40px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            border: 2px solid white;
+        }
+        
+        .section {
+            padding: 80px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--blue);
+            margin-bottom: 60px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .service-card {
+            padding: 40px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        
+        .service-card h3 {
+            color: var(--blue);
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .review-card {
+            border: 1px solid #e2e8f0;
+            padding: 30px;
+        }
+        
+        .stars { color: #fbbf24; font-size: 20px; margin-bottom: 10px; }
+        
+        .reviewer { font-weight: 600; color: var(--blue); margin-bottom: 10px; }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--blue);
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e2e8f0;
+            font-size: 16px;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--blue);
+        }
+        
+        .info-item {
+            margin-bottom: 30px;
+        }
+        
+        .info-item strong {
+            color: var(--blue);
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .map-container {
+            border: 1px solid #e2e8f0;
+            border-radius: 0;
+            overflow: hidden;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 20px 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 36px; }
+            .hero p { font-size: 20px; }
+            .section-title { font-size: 32px; }
+            .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="container">
+            <span class="phone"><a href="tel:+14053407974" style="color:white;">📞 (405) 340-7974</a></span>
+            <span>Mon-Fri 8AM-6PM | Sat 9AM-4PM</span>
+        </div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo">Western Mobile Glass & Mirror</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Auto Glass Experts</h1>
+            <p>Guthrie, OK • Mobile Service Available</p>
+            <a href="tel:+14053407974" class="cta-button">CALL NOW (405) 340-7974</a>
+        </div>
+    </section>
+
+    <section class="section" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Windshield Replacement</h3>
+                    <p>Complete replacement with OEM quality glass. All insurance accepted. Lifetime warranty.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Windshield Repair</h3>
+                    <p>Fix chips & cracks in 30 minutes. Most insurance covers 100% - no deductible.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Door Glass</h3>
+                    <p>Side window replacement for cars, trucks, SUVs. Same-day service available.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Back Glass</h3>
+                    <p>Rear window replacement with heated/defrost options. Precision installation.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Side Mirrors</h3>
+                    <p>Power/heated mirror replacement. All makes & models. Quick turnaround.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Mobile Service</h3>
+                    <p>We come to YOU - home, work, or anywhere in Guthrie area. No extra charge.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--gray);">
+        <div class="container">
+            <h2 class="section-title">5-Star Reviews</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <div class="reviewer">John M.</div>
+                    <p>"Chris was amazing! Replaced my windshield at work in under an hour. Perfect job."</p>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <div class="reviewer">Sarah T.</div>
+                    <p>"Mobile service was a lifesaver. Came to my house, fair price, excellent work."</p>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <div class="reviewer">Mike R.</div>
+                    <p>"Best price in Guthrie. Quality work, no leaks after 6 months. Highly recommend!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-grid">
+                <form style="background:white; padding:40px;">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="tel" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Service Needed</label>
+                        <select style="width:100%; padding:15px; border:2px solid #e2e8f0;">
+                            <option>Windshield Replacement</option>
+                            <option>Windshield Repair</option>
+                            <option>Door Glass</option>
+                            <option>Mobile Service</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="cta-button" style="width:100%; margin-top:20px;">Get Free Quote</button>
+                </form>
+                <div style="background:white; padding:40px;">
+                    <div class="info-item">
+                        <strong>📞 Phone</strong>
+                        <div>(405) 340-7974</div>
+                    </div>
+                    <div class="info-item">
+                        <strong>📍 Address</strong>
+                        <div>424 Sigma Pl #6096<br>Guthrie, OK 73044</div>
+                    </div>
+                    <div class="info-item">
+                        <strong>⏰ Hours</strong>
+                        <div>Mon-Fri: 8AM-6PM<br>Sat: 9AM-4PM<br>Sun: Closed</div>
+                    </div>
+                    <div class="info-item">
+                        <strong>👨 Owner</strong>
+                        <div>Chris - 15+ Years Experience</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--gray);">
+        <div class="container">
+            <h2 class="section-title">Our Location</h2>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3192.356247896852!2d-97.43190768476912!3d35.85893798014954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87b18d57c21fb40b%3A0x6f533bdd86252c61!2sWestern%20Mobile%20Glass%20%26%20Mirror!5e0!3m2!1sen!2sus!4v1647890123456!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Western Mobile Glass & Mirror</h4>
+                    <p>Guthrie's Trusted Auto Glass Experts Since 2008</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <p>Windshield Repair<br>Windshield Replacement<br>Mobile Service</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>(405) 340-7974<br>424 Sigma Pl #6096<br>Guthrie, OK 73044</p>
+                </div>
+            </div>
+            <p style="text-align:center; opacity:0.7;">© 2025 Western Mobile Glass & Mirror. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+        
+        // Form submit
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you! Chris will call you within 15 minutes.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
