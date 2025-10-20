@@ -174,7 +174,8 @@
         }
         
         .form-group input,
-        .form-group textarea {
+        .form-group textarea,
+        .form-group select {
             width: 100%;
             padding: 15px;
             border: 2px solid #e2e8f0;
@@ -182,7 +183,8 @@
         }
         
         .form-group input:focus,
-        .form-group textarea:focus {
+        .form-group textarea:focus,
+        .form-group select:focus {
             outline: none;
             border-color: var(--blue);
         }
@@ -296,26 +298,10 @@
         </div>
     </section>
 
-    <section class="section" style="background: var(--gray);">
+    <section class="section" id="reviews" style="background: var(--gray);">
         <div class="container">
             <h2 class="section-title">5-Star Reviews</h2>
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <div class="reviewer">John M.</div>
-                    <p>"Chris was amazing! Replaced my windshield at work in under an hour. Perfect job."</p>
-                </div>
-                <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <div class="reviewer">Sarah T.</div>
-                    <p>"Mobile service was a lifesaver. Came to my house, fair price, excellent work."</p>
-                </div>
-                <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <div class="reviewer">Mike R.</div>
-                    <p>"Best price in Guthrie. Quality work, no leaks after 6 months. Highly recommend!"</p>
-                </div>
-            </div>
+            <div class="reviews-grid" id="reviewsGrid"></div>
         </div>
     </section>
 
@@ -334,7 +320,7 @@
                     </div>
                     <div class="form-group">
                         <label>Service Needed</label>
-                        <select style="width:100%; padding:15px; border:2px solid #e2e8f0;">
+                        <select>
                             <option>Windshield Replacement</option>
                             <option>Windshield Repair</option>
                             <option>Door Glass</option>
@@ -395,6 +381,78 @@
     </footer>
 
     <script>
+        // 🔥 PASTE YOUR REVIEWS HERE - JUST REPLACE THE ARRAY BELOW 🔥
+        [
+  { name: "Benton Whipple", rating: 5, body: "Was recommended to these guys by many. They were quick to come out and replace my daughter’s windshield. Very polite and professional. Will do business with them again." },
+  { name: "Ky Edwards", rating: 5, body: "Got a windshield for my truck done. Excellent customer service and a fast, quality experience. Highly recommend, these guys will get you right." },
+  { name: "Kelsi Carrington", rating: 5, body: "Saw them fixing someone else’s windshield and I got a quote, almost $1000 less than everyone else! Immediately scheduled! They were so nice and made it so easy!" },
+  { name: "John Williams", rating: 5, body: "Excellent customer service, very pleased Chris picked up my truck and installed my window and delivered it back to me while I was at work." },
+  { name: "Anon M", rating: 5, body: "Called me back and gave me a decent quote for a brand new window. Let me split up my payments, had it installed within a 45 minutes. I highly recommend this place!" },
+  { name: "Davia Gutierrez", rating: 5, body: "Unfortunately, our vehicles got broken into over the weekend. I called Western Glass and I was given a quote over the phone and a few days later they are doing the install right now!! They came to us to install it. Im so happy we didnt have" },
+  { name: "Cody Neff", rating: 5, body: "I was extremely happy with the work they did. My wife's windshield was cracked from end to end, and we were worried it would take awhile. They were able to get it ordered and installed the next day in about 45 minutes. It was a really" },
+  { name: "Lane Roach", rating: 5, body: "Great customer service and great quality of work would recommend to everyone" },
+  { name: "Heather Retter", rating: 5, body: "Super friendly, quick and efficient and great pricing. I got my windshield replaced and they did awesome, will use them again." },
+  { name: "Brenda O'Connor", rating: 5, body: "Easy to get appointment in a day or 2. Location not hard to find. Staff is welcoming, accommodating. Prices cheaper than all other places in area. Professional service. Will recommend to anyone in need of their services." },
+  { name: "Brooke Smoot", rating: 5, body: "Such fast service and friendly staff! made such a stressful situation a whole lot easier! thank you for replacing my windshield. completely recommend to anyone in need of windshield replacements!" },
+  { name: "Jennifer Scott", rating: 5, body: "The service was top of the line. Amazing customer service and prices that can’t be beat. They were able to get a new windshield immediately and it looks absolutely amazing! Thank you so much!" },
+  { name: "Sarah Williams", rating: 5, body: "Chris was absolutely wonderful to work with! Quality customer service is hard to come by and Chris went above and beyond to ensure we had a rear windshield the same day it was damaged. We could not be more pleased with the service, quality, and price." },
+  { name: "Dillon Perry", rating: 5, body: "Got a very good price on windshield replacement, about $100 less than Safelite and they happened to have an opening the same day. Very friendly and clearly extra careful with the car. Got a mangled mess of broken glass out of my windshield" },
+  { name: "E F", rating: 5, body: "Just awesome all around! Service, prices, quality, SUPER fast. Can’t speak more highly. I will be bringing all of my vehicles here for and glass needs from now on" },
+  { name: "Kurtis Burton", rating: 5, body: "Very polite and professional. They will be my go-to for automotive glass needs." },
+  { name: "Gina Henderson", rating: 5, body: "I am BEYOND pleased with my experience! Extremely pleasant and professional individuals. I could not have asked for better service. Chris and Dakota, thank you so much. I would recommend this company to anyone!" },
+  { name: "Christy Gilbert", rating: 5, body: "My very first impression was the friendly voice when I called. Next, that voice was backed up with over-the-top speedy service. They went the extra mile, so I wasn’t without a car over the weekend. I highly recommend Western Glass!" },
+  { name: "Jaaron Lee-morgan", rating: 5, body: "They drove to my house and took out my busted windshield/ put in a new one and did it very quickly. When I called they had the most amazing customer service" },
+  { name: "Bobby Lair", rating: 5, body: "One of the friendliest places I have been into in a long time. Highly recommend this place for auto window care. And they also sell tires." },
+  { name: "Cynthia Short", rating: 5, body: "The guys were all very friendly and went out of their way to get my windshield replaced as quick as possible. I appreciated their communication and them going above and beyond." },
+  { name: "Stephen Newbury", rating: 5, body: "Honest and professional. They did quick work replacing the windshield on my 40 year old truck. Great people." },
+  { name: "Gary C", rating: 5, body: "Helped out and replaced glass same day I called, but that was the second call... However he did such a great job--5 stars anyway!" },
+  { name: "Charles Wittsell", rating: 5, body: "Great service. They were able to get me in quick and get my car back to me quick." },
+  { name: "John D", rating: 5, body: "Quick and easy to get work done. Very professional and excellent outcome." },
+  { name: "WK3 Productions", rating: 5, body: "Great experience! Services Auto windshield repair" },
+  { name: "Seth Torri", rating: 5, body: "Very professional business. The owner is very nice and they do great work." },
+  { name: "donna chambers", rating: 5, body: "Guys are wonderful I have used in my business for years Thanks Chris" },
+  { name: "Michael M", rating: 5, body: "Very helpful and the quoted price very reasonable" },
+  { name: "Dennis Lancaster", rating: 5, body: "Competitive Prices and Quality Work. Great Personality from Owner" },
+  { name: "Ramee Johnson", rating: 5, body: "Great place very reasonable price supper nice people" },
+  { name: "Glenn Morgan", rating: 5, body: "Great service. Great people. Thank you again." },
+  { name: "Thomas Evans", rating: 5, body: "Did me a good job no complaints" },
+  { name: "Christal Snow", rating: 5, body: "Big help I am so glad I found this place@" },
+  { name: "Linda Hales", rating: 5, body: "Fast and friendly service that comes to you" },
+  { name: "john tucker", rating: 5, body: "Best price service and quality to notch" },
+  { name: "Levi Stafford", rating: 5, body: "Chris is a great guy" },
+  { name: "Zac Turner", rating: 5, body: "Positive Punctuality, Quality, Professionalism, Value" },
+  { name: "Blake Mccorkle", rating: 5, body: "" },
+  { name: "Rich Manteau", rating: 5, body: "" },
+  { name: "Michael Bates", rating: 5, body: "" },
+  { name: "Kevin Kibler", rating: 5, body: "" },
+  { name: "Richard Shelton", rating: 5, body: "" },
+  { name: "Andrew William", rating: 5, body: "" },
+  { name: "Ryan Miller", rating: 5, body: "" },
+  { name: "Trenton Reynolds", rating: 5, body: "" },
+  { name: "FREDRICK TAYLOR", rating: 5, body: "" },
+  { name: "STaci Ramsey", rating: 3, body: "" },
+  { name: "Heath Williams", rating: 1, body: "Told me that he ordered my window for my truck weeks ago and never called me back when he got the window too repair mine. Not very trustworthy." },
+  { name: "Joshua Patton", rating: 1, body: "Terrible customer service never even returned my call to try and get window replaced" },
+  { name: "Terry Vaughan", rating: 1, body: "Guy never showed up or called me back for repair service." },
+  { name: "B Simms", rating: 1, body: "I didn't go there why an I on this?" },
+  { name: "Tutash Express Fleet Department", rating: 1, body: "" }
+]
+
+        // AUTO-GENERATES ALL REVIEWS - DON'T TOUCH THIS PART
+        function renderReviews() {
+            const container = document.getElementById('reviewsGrid');
+            reviews.forEach(review => {
+                const stars = '★'.repeat(review.stars) + '☆'.repeat(5 - review.stars);
+                container.innerHTML += `
+                    <div class="review-card">
+                        <div class="stars">${stars}</div>
+                        <div class="reviewer">${review.name}</div>
+                        <p>"${review.text}"</p>
+                    </div>
+                `;
+            });
+        }
+
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -409,6 +467,9 @@
             alert('Thank you! Chris will call you within 15 minutes.');
             this.reset();
         });
+
+        // LOAD REVIEWS ON PAGE START
+        renderReviews();
     </script>
 </body>
 </html>
